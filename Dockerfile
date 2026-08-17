@@ -53,3 +53,4 @@ RUN chmod +x /code/healthcheck.sh
 RUN chmod +x /code/start.sh
 
 ENTRYPOINT ["/code/start.sh"]
+
