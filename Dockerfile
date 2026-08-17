@@ -13,11 +13,11 @@ ENV UV_PYTHON_DOWNLOADS=0
 
 WORKDIR /build
 
-# حذف ساختار کش برای سازگاری کامل با ریل‌وی
-RUN --mount=type=bind,source=uv.lock,target=uv.lock \
-    --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev
-ADD . /build
+# کپی کردن فایل‌های پروژه بدون استفاده از قابلیت‌های نامانوس ریل‌وی
+COPY uv.lock pyproject.toml /build/
+RUN uv sync --frozen --no-install-project --no-dev
+
+COPY . /build
 RUN uv sync --frozen --no-dev
 
 
