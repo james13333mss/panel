@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# نصب ابزار Bun در محیط بیلد برای حل ارور فرانت‌اند
+# اصلاح آدرس نصب ابزار Bun در محیط بیلد برای حل ارور فرانت‌اند
 RUN curl -fsSL https://bun.sh | bash
 ENV PATH="/root/.bun/bin:$PATH"
 
